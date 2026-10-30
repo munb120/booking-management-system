@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %> | Booking Management</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <main class="container form-container">
+        <a class="back-link" href="/">← Back to bookings</a>
+
+        <section class="panel form-panel">
+            <div class="panel-heading">
+                <div>
+                    <p class="eyebrow">BOOKING MANAGEMENT</p>
+                    <h1><%= pageTitle %></h1>
+                    <p class="muted">Enter the booking information below.</p>
+                </div>
+            </div>
+
+            <form action="<%= formAction %>" method="POST" class="booking-form">
+                <div class="field">
+                    <label for="customer_name">Customer name</label>
+                    <input id="customer_name" name="customer_name" type="text" maxlength="100"
+                           value="<%= booking ? booking.customer_name : '' %>" required>
+                </div>
+
+                <div class="field">
+                    <label for="customer_email">Customer email</label>
+                    <input id="customer_email" name="customer_email" type="email" maxlength="150"
+                           value="<%= booking ? booking.customer_email : '' %>" required>
+                </div>
+
+                <div class="field">
+                    <label for="service">Service</label>
+                    <input id="service" name="service" type="text" maxlength="100"
+                           placeholder="e.g. Consultation" value="<%= booking ? booking.service : '' %>" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="field">
+                        <label for="booking_date">Booking date</label>
+                        <input id="booking_date" name="booking_date" type="date"
+                               value="<%= booking ? new Date(booking.booking_date).toISOString().slice(0, 10) : '' %>" required>
+                    </div>
+                    <div class="field">
+                        <label for="booking_time">Booking time</label>
+                        <input id="booking_time" name="booking_time" type="time"
+                               value="<%= booking ? String(booking.booking_time).slice(0, 5) : '' %>" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="status">Status</label>
+                    <select id="status" name="status" required>
+                        <% const currentStatus = booking ? booking.status : 'Pending'; %>
+                        <% ['Pending', 'Confirmed', 'Completed', 'Cancelled'].forEach((status) => { %>
+                            <option value="<%= status %>" <%= currentStatus === status ? 'selected' : '' %>><%= status %></option>
+                        <% }) %>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <a class="button secondary" href="/">Cancel</a>
+                    <button class="button" type="submit"><%= booking ? 'Save changes' : 'Create booking' %></button>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

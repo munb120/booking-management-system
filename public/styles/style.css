@@ -1,0 +1,295 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f5f6f8;
+    color: #202938;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.container {
+    width: min(1100px, calc(100% - 40px));
+    margin: 48px auto;
+}
+
+.topbar, .panel-heading, .form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.topbar {
+    margin-bottom: 28px;
+}
+
+h1, h2, h3, p {
+    margin-top: 0;
+}
+
+h1 {
+    margin-bottom: 8px;
+    font-size: 30px;
+}
+
+h2 {
+    margin-bottom: 6px;
+    font-size: 19px;
+}
+
+h3 {
+    margin-bottom: 8px;
+}
+
+.muted, .subtext {
+    color: #737d8c;
+}
+
+.muted {
+    margin-bottom: 0;
+}
+
+.eyebrow {
+    margin-bottom: 8px;
+    color: #64748b;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+}
+
+.button {
+    display: inline-block;
+    border: 1px solid #26364a;
+    border-radius: 6px;
+    padding: 11px 16px;
+    background: #26364a;
+    color: white;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #354b65;
+}
+
+.button.secondary {
+    border-color: #d8dee7;
+    background: white;
+    color: #344054;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stat-card, .panel {
+    border: 1px solid #e5e8ee;
+    border-radius: 9px;
+    background: white;
+}
+
+.stat-card {
+    padding: 20px;
+}
+
+.stat-card h2 {
+    margin: 12px 0 0;
+    font-size: 27px;
+}
+
+.panel {
+    padding: 24px;
+}
+
+.panel-heading {
+    margin-bottom: 22px;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th {
+    background: #f8f9fb;
+    color: #687385;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+th, td {
+    border-bottom: 1px solid #edf0f3;
+    padding: 14px 12px;
+    white-space: nowrap;
+}
+
+td:first-child {
+    white-space: normal;
+    min-width: 190px;
+}
+
+.subtext {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.status {
+    display: inline-block;
+    border-radius: 20px;
+    padding: 5px 9px;
+    background: #eef2f6;
+    color: #475467;
+    font-size: 12px;
+}
+
+.status.confirmed {
+    background: #eaf5ee;
+    color: #287044;
+}
+
+.status.completed {
+    background: #eaf1fb;
+    color: #315d9a;
+}
+
+.status.cancelled {
+    background: #fceeee;
+    color: #a33b3b;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.actions form {
+    margin: 0;
+}
+
+.text-link, .delete-button, .back-link {
+    color: #315d9a;
+    text-decoration: none;
+    font: inherit;
+}
+
+.delete-button {
+    border: 0;
+    padding: 0;
+    background: none;
+    color: #b54747;
+    cursor: pointer;
+}
+
+.empty-state {
+    padding: 38px 15px;
+    text-align: center;
+}
+
+.empty-state .button {
+    margin-top: 18px;
+}
+
+footer {
+    margin-top: 24px;
+    color: #98a1ad;
+    text-align: center;
+    font-size: 12px;
+}
+
+.form-container {
+    max-width: 680px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 18px;
+}
+
+.form-panel {
+    padding: 28px;
+}
+
+.booking-form {
+    display: grid;
+    gap: 18px;
+}
+
+.field {
+    display: grid;
+    gap: 7px;
+}
+
+.field label {
+    color: #344054;
+    font-weight: 600;
+}
+
+input, select {
+    width: 100%;
+    min-height: 42px;
+    border: 1px solid #d5dbe4;
+    border-radius: 6px;
+    padding: 10px 11px;
+    background: white;
+    color: #202938;
+    font: inherit;
+}
+
+input:focus, select:focus {
+    outline: 2px solid #d9e5f5;
+    border-color: #7895ba;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-actions {
+    justify-content: flex-end;
+    margin-top: 8px;
+}
+
+@media (max-width: 650px) {
+    .container {
+        width: min(100% - 24px, 1100px);
+        margin: 24px auto;
+    }
+
+    .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 15px;
+    }
+
+    .panel, .form-panel {
+        padding: 17px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
